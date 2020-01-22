@@ -46,10 +46,15 @@ namespace BookShell.Controllers
             var author = await _context.Authors
                 //.Include(a => a.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (author == null)
             {
                 return NotFound();
             }
+
+            var user = await GetCurrentUserAsync();
+
+            author.Books = _context.Books.Where( a => a.AuthorId == id && a.ApplicationUserId == user.Id ).ToList();
 
             return View(author);
         }

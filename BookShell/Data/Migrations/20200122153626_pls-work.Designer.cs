@@ -4,14 +4,16 @@ using BookShell.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookShell.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200122153626_pls-work")]
+    partial class plswork
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,7 +98,7 @@ namespace BookShell.Data.Migrations
                         {
                             Id = "00000000-ffff-ffff-ffff-ffffffffffff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "21fb4a38-6c55-4be7-90d3-c9c404850e0b",
+                            ConcurrencyStamp = "d5ff8e7a-a6ae-41fa-ba7d-948398230dc8",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             FirstName = "admin",
@@ -104,7 +106,7 @@ namespace BookShell.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGfRiF48873OI4cmq/guMZIoew63o3Hvomr6JwIDzshcpep7BuytNWgsYTnH2lYpWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN7hjLwi3PAIz4cihs9f/Lk3JY8STzkogyQpTzsD5iGKl2sTFN8S2picXsaq3yLgCA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "7f434309-a4d9-48e9-9ebb-8803db794577",
                             TwoFactorEnabled = false,
@@ -130,26 +132,6 @@ namespace BookShell.Data.Migrations
                     b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Authors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            Name = "Jimmy John"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            Name = "Jersey Mike"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            Name = "Jared Fogel"
-                        });
                 });
 
             modelBuilder.Entity("BookShell.Models.Book", b =>
@@ -184,38 +166,6 @@ namespace BookShell.Data.Migrations
                     b.HasIndex("AuthorId");
 
                     b.ToTable("Books");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            AuthorId = 1,
-                            Genre = "Sandwiches",
-                            Rating = 10,
-                            Title = "Free Smells",
-                            YearPublished = 1990
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            AuthorId = 2,
-                            Genre = "Sandwiches",
-                            Rating = 1,
-                            Title = "Jersey Subs",
-                            YearPublished = 2020
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            AuthorId = 3,
-                            Genre = "Instructional",
-                            Rating = 0,
-                            Title = "How to make a prison sandwich",
-                            YearPublished = 2015
-                        });
                 });
 
             modelBuilder.Entity("BookShell.Models.Comment", b =>
@@ -241,29 +191,6 @@ namespace BookShell.Data.Migrations
                     b.HasIndex("BookId");
 
                     b.ToTable("Comments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            BookId = 2,
-                            Text = "It smells like jersey"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            BookId = 1,
-                            Text = "what is even jimmy john's"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ApplicationUserId = "00000000-ffff-ffff-ffff-ffffffffffff",
-                            BookId = 3,
-                            Text = "how did he write this book?"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
