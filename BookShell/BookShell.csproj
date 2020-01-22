@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-BookShell-549954C2-865F-4DAC-86E1-7603DC058C5D</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200122160315_Dummy-Book-Sandwiches.cs" />
+    <Compile Remove="Data\Migrations\20200122160315_Dummy-Book-Sandwiches.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.0" />
