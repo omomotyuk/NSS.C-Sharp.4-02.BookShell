@@ -38,13 +38,17 @@ namespace BookShell.Controllers
             }
 
             var book = await _context.Books
-                .Include(b => b.ApplicationUser)
+                //.Include(b => b.ApplicationUser)
                 .Include(b => b.Author)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (book == null)
             {
                 return NotFound();
             }
+
+            // making list of comments
+            var user = await GetCurrentUserAsync();
+            book.Comments = _context.Comments.Where(a => a.BookId == id && a.ApplicationUserId == user.Id).ToList();
 
             return View(book);
         }
